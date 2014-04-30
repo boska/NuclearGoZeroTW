@@ -9,6 +9,7 @@
 #import "NTDistanceViewController.h"
 #import <AKLocationManager.h>
 #import <GMDirectionService.h>
+#import "GeoPointCompass.h"
 @interface NTDistanceViewController ()
 @property (nonatomic,weak) IBOutlet UILabel *distanceLabel;
 @property (nonatomic,weak) IBOutlet UILabel *durationLabel;
@@ -19,7 +20,18 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  [self.view setBackgroundColor:[UIColor blackColor]];
+  UIImage *arrow = [UIImage imageNamed:@"arrow"];
+  UIImage *tintArrow = [arrow imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+  self.compassImageView.image = tintArrow;
+  GeoPointCompass *geoPointCompass = [[GeoPointCompass alloc] init];
+  [geoPointCompass setArrowImageView:self.compassImageView];
+  geoPointCompass.latitudeOfTargetedPoint = NUKE4_COOR.latitude;
+  geoPointCompass.longitudeOfTargetedPoint = NUKE4_COOR.longitude;
+
+
   [AKLocationManager startLocatingWithUpdateBlock:^(CLLocation *location){
+    [geoPointCompass updateLocationManually:location];
     // location acquired
     CLLocation *planetLocation = [[CLLocation alloc]initWithLatitude:NUKE4_COOR.latitude longitude:NUKE4_COOR.longitude];
    CLLocationDistance distance = [location distanceFromLocation:planetLocation];
@@ -27,6 +39,9 @@
     self.distanceLabel.text = [NSString stringWithFormat:@"%.1fkm",distance/1000];
   }failedBlock:^(NSError *error){
     // something is wrong
+  }headingUpdateBlock:^(CLHeading *heading) {
+    [geoPointCompass updateHeading:heading];
+    NSLog(@"%@",heading.description);
   }];
 
   

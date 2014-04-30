@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D58B44C1910CCA700829FCC /* NTProtestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D58B44B1910CCA700829FCC /* NTProtestViewController.m */; };
+		8D58B44F1910D7D100829FCC /* UITabBarController+Autorotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D58B44E1910D7D100829FCC /* UITabBarController+Autorotate.m */; };
+		8D58B4511910E14B00829FCC /* superbold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D58B4501910E14B00829FCC /* superbold.otf */; };
+		8D58B4551910EA0900829FCC /* GeoPointCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D58B4541910EA0900829FCC /* GeoPointCompass.m */; };
 		8DE2988E191097E700C9537F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE2988D191097E700C9537F /* Foundation.framework */; };
 		8DE29890191097E700C9537F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE2988F191097E700C9537F /* CoreGraphics.framework */; };
 		8DE29892191097E700C9537F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE29891191097E700C9537F /* UIKit.framework */; };
@@ -38,6 +42,13 @@
 
 /* Begin PBXFileReference section */
 		6E57A6341EB346A9B3CD3253 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		8D58B44A1910CCA700829FCC /* NTProtestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTProtestViewController.h; sourceTree = "<group>"; };
+		8D58B44B1910CCA700829FCC /* NTProtestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTProtestViewController.m; sourceTree = "<group>"; };
+		8D58B44D1910D7D100829FCC /* UITabBarController+Autorotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+Autorotate.h"; sourceTree = "<group>"; };
+		8D58B44E1910D7D100829FCC /* UITabBarController+Autorotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+Autorotate.m"; sourceTree = "<group>"; };
+		8D58B4501910E14B00829FCC /* superbold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = superbold.otf; sourceTree = "<group>"; };
+		8D58B4531910EA0900829FCC /* GeoPointCompass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoPointCompass.h; sourceTree = "<group>"; };
+		8D58B4541910EA0900829FCC /* GeoPointCompass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoPointCompass.m; sourceTree = "<group>"; };
 		8DE2988A191097E700C9537F /* NoNukeTaiwan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoNukeTaiwan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE2988D191097E700C9537F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8DE2988F191097E700C9537F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D58B4521910EA0900829FCC /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				8D58B4531910EA0900829FCC /* GeoPointCompass.h */,
+				8D58B4541910EA0900829FCC /* GeoPointCompass.m */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		8DE29881191097E700C9537F = {
 			isa = PBXGroup;
 			children = (
@@ -123,10 +143,15 @@
 		8DE29893191097E700C9537F /* NoNukeTaiwan */ = {
 			isa = PBXGroup;
 			children = (
+				8D58B4521910EA0900829FCC /* Library */,
+				8D58B44D1910D7D100829FCC /* UITabBarController+Autorotate.h */,
+				8D58B44E1910D7D100829FCC /* UITabBarController+Autorotate.m */,
 				8DE2989C191097E700C9537F /* NTAppDelegate.h */,
 				8DE2989D191097E700C9537F /* NTAppDelegate.m */,
 				8DE2989F191097E700C9537F /* Main_iPhone.storyboard */,
 				8DE298A2191097E700C9537F /* Main_iPad.storyboard */,
+				8D58B44A1910CCA700829FCC /* NTProtestViewController.h */,
+				8D58B44B1910CCA700829FCC /* NTProtestViewController.m */,
 				8DE298A5191097E700C9537F /* NTDistanceViewController.h */,
 				8DE298A6191097E700C9537F /* NTDistanceViewController.m */,
 				8DE298A8191097E700C9537F /* NTEvacViewController.h */,
@@ -141,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				8DE29895191097E700C9537F /* NoNukeTaiwan-Info.plist */,
+				8D58B4501910E14B00829FCC /* superbold.otf */,
 				8DE29896191097E700C9537F /* InfoPlist.strings */,
 				8DE29899191097E700C9537F /* main.m */,
 				8DE2989B191097E700C9537F /* NoNukeTaiwan-Prefix.pch */,
@@ -250,6 +276,7 @@
 			files = (
 				8DE298A4191097E700C9537F /* Main_iPad.storyboard in Resources */,
 				8DE298AC191097E700C9537F /* Images.xcassets in Resources */,
+				8D58B4511910E14B00829FCC /* superbold.otf in Resources */,
 				8DE298A1191097E700C9537F /* Main_iPhone.storyboard in Resources */,
 				8DE29898191097E700C9537F /* InfoPlist.strings in Resources */,
 			);
@@ -305,8 +332,11 @@
 			files = (
 				8DE298AA191097E700C9537F /* NTEvacViewController.m in Sources */,
 				8DE2989E191097E700C9537F /* NTAppDelegate.m in Sources */,
+				8D58B44C1910CCA700829FCC /* NTProtestViewController.m in Sources */,
 				8DE298A7191097E700C9537F /* NTDistanceViewController.m in Sources */,
+				8D58B4551910EA0900829FCC /* GeoPointCompass.m in Sources */,
 				8DE2989A191097E700C9537F /* main.m in Sources */,
+				8D58B44F1910D7D100829FCC /* UITabBarController+Autorotate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  NTFirstViewController.h
+//  UITabBarController+Autorotate.h
 //  NoNukeTaiwan
 //
 //  Created by Boska Lee on 4/30/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NTDistanceViewController : UIViewController
-@property (nonatomic,weak)IBOutlet UIImageView *compassImageView;
+@interface UITabBarController (Autorotate)
+
 @end

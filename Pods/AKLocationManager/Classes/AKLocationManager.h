@@ -29,6 +29,7 @@
 extern NSString *const kAKLocationManagerErrorDomain;
 
 typedef void (^LocationUpdateBlock)(CLLocation *location);
+typedef void (^HeadingUpdateBlock)(CLHeading *heading);
 typedef void (^LocationFailedBlock)(NSError *error);
 
 typedef enum {
@@ -80,7 +81,7 @@ typedef enum {
 // in the .m
 //
 + (void)startLocatingWithUpdateBlock:(LocationUpdateBlock)didUpdate
-                         failedBlock:(LocationFailedBlock)didFail;
+                         failedBlock:(LocationFailedBlock)didFail headingUpdateBlock:(HeadingUpdateBlock)didUpdateHead;
 
 //
 // Stops the generation of location updates.

@@ -93,20 +93,39 @@
             </objects>
             <point key="canvasLocation" x="3041" y="150"/>
         </scene>
-        <!--View Controller-->
+        <!--Protest View Controller - 路過-->
         <scene sceneID="T1d-F2-KW4">
             <objects>
-                <viewController id="EdA-h9-mWB" sceneMemberID="viewController">
+                <viewController id="EdA-h9-mWB" customClass="NTProtestViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ST4-va-dCc"/>
                         <viewControllerLayoutGuide type="bottom" id="OMY-m3-e3h"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="90p-H2-oLw">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gcz-wD-e8Q">
+                                <rect key="frame" x="20" y="282" width="984" height="349"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="300"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Gcz-wD-e8Q" secondAttribute="trailing" constant="20" id="FPG-48-8ls"/>
+                            <constraint firstItem="Gcz-wD-e8Q" firstAttribute="leading" secondItem="90p-H2-oLw" secondAttribute="leading" constant="20" id="Vd4-gu-ejL"/>
+                            <constraint firstItem="Gcz-wD-e8Q" firstAttribute="top" secondItem="ST4-va-dCc" secondAttribute="bottom" constant="262" id="aj1-7r-GPo"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="fMB-wa-Uu4"/>
+                    <tabBarItem key="tabBarItem" title="路過" image="protest" id="fMB-wa-Uu4"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="frameLabel" destination="Gcz-wD-e8Q" id="1LH-kR-CYu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wv-no-o4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,6 +226,7 @@
     </scenes>
     <resources>
         <image name="plant" width="30" height="30"/>
+        <image name="protest" width="30" height="30"/>
         <image name="scream" width="21" height="29"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

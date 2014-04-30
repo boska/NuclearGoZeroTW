@@ -7,11 +7,20 @@
 //
 
 #import "NTAppDelegate.h"
-
+#import "NTDistanceViewController.h"
 @implementation NTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [GMSServices provideAPIKey:@"AIzaSyBtKmTvxiA_COgy1i22Swfuzd8DZRQtwpA"];
+  [[UITabBar appearance] setSelectedImageTintColor:[UIColor yellowColor]];
+  [[UITabBar appearance] setBarStyle:UIBarStyleBlack];
+  [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
+
+  [[[UIApplication sharedApplication] delegate].window setTintColor:[UIColor yellowColor]];
+
+  [[UILabel appearanceWhenContainedIn:[NTDistanceViewController class], nil] setTextColor:[UIColor yellowColor]];
+
+  //[[UIView appearance] setBackgroundColor:[UIColor blackColor]];
   return YES;
 }
 

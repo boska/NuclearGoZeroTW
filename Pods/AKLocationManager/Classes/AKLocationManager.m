@@ -29,7 +29,7 @@
 
 LocationUpdateBlock _locationDidUpdate;
 LocationFailedBlock _locationDidFail;
-
+HeadingUpdateBlock _headingDidUpdate;
 static AKLocationManager *_locationManager = nil;
 static NSTimer *_locationTimeoutTimer = nil;
 static CLLocationDistance _distanceFilterAccuracy = 2000.0f;
@@ -44,166 +44,152 @@ NSString *const kAKLocationManagerErrorDomain = @"AKLocationManagerErrorDomain";
 // If you want to disable logging completely, add #define AKLLog(...) to your prefix file
 //
 #ifdef DEBUG
-#   ifndef AKLLog
-#      define AKLLog(fmt, ...) NSLog((@"AKLocation - [Line %d] " fmt), __LINE__, ##__VA_ARGS__);
-#   endif
+#ifndef AKLLog
+#define AKLLog(fmt, ...) NSLog((@"AKLocation - [Line %d] " fmt), __LINE__, ## __VA_ARGS__);
+#endif
 #else
-#   define AKLLog(...)
+#define AKLLog(...)
 #endif
 
 #pragma mark CLLocationManager Delegate
 
-+ (void)setDistanceFilterAccuracy:(CLLocationAccuracy)accuracy
-{
-    _distanceFilterAccuracy = accuracy;
++ (void)setDistanceFilterAccuracy:(CLLocationAccuracy)accuracy {
+  _distanceFilterAccuracy = accuracy;
 }
 
-+ (void)setDesiredAccuracy:(CLLocationAccuracy)desiredAccuracy
-{
-    _desiredAccuracy = desiredAccuracy;
++ (void)setDesiredAccuracy:(CLLocationAccuracy)desiredAccuracy {
+  _desiredAccuracy = desiredAccuracy;
 }
 
-+ (void)setTimeoutTimeInterval:(NSTimeInterval)timeInterval
-{
-    _timeoutTimeInterval = timeInterval;
++ (void)setTimeoutTimeInterval:(NSTimeInterval)timeInterval {
+  _timeoutTimeInterval = timeInterval;
 }
 
 + (void)startLocatingWithUpdateBlock:(LocationUpdateBlock)didUpdate
                          failedBlock:(LocationFailedBlock)didFail
-{
-    if (![AKLocationManager canLocate])
-    {
-        NSError *e = [NSError errorWithDomain:kAKLocationManagerErrorDomain
-                                         code:AKLocationManagerErrorCannotLocate
-                                     userInfo:nil];
-        didFail(e);
-        return;
-    }
-    
-    _locationDidUpdate = didUpdate;
-    _locationDidFail = didFail;
-    
-    if (!_locationManager)
-    {
-        _locationManager = [[AKLocationManager alloc] init];
-    }
-    
-    _locationManager.distanceFilter = _distanceFilterAccuracy;
-    _locationManager.desiredAccuracy = _desiredAccuracy;
-    _locationManager.delegate = _locationManager;
-    
-    _locationTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:_timeoutTimeInterval
-                                                             target:_locationManager
-                                                           selector:@selector(timerEnded)
-                                                           userInfo:nil
-                                                            repeats:NO];
-    [_locationManager startUpdatingLocation];
-    
-    AKLLog(@"\n Started locating\n ==============\n Distance filter accuracy: %.2f\n Desired accuracy: %.2f\n Timeout: %.2f", _distanceFilterAccuracy, _desiredAccuracy, _timeoutTimeInterval);
+                  headingUpdateBlock:(HeadingUpdateBlock)didUpdateHead {
+  if (![AKLocationManager canLocate]) {
+    NSError *e = [NSError errorWithDomain:kAKLocationManagerErrorDomain
+                                     code:AKLocationManagerErrorCannotLocate
+                                 userInfo:nil];
+    didFail(e);
+    return;
+  }
+
+  _locationDidUpdate = didUpdate;
+  _locationDidFail = didFail;
+  _headingDidUpdate = didUpdateHead;
+
+  if (!_locationManager) {
+    _locationManager = [[AKLocationManager alloc] init];
+  }
+
+  _locationManager.distanceFilter = _distanceFilterAccuracy;
+  _locationManager.desiredAccuracy = _desiredAccuracy;
+  _locationManager.delegate = _locationManager;
+
+  _locationTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:_timeoutTimeInterval
+                                                           target:_locationManager
+                                                         selector:@selector(timerEnded)
+                                                         userInfo:nil
+                                                          repeats:NO];
+  [_locationManager startUpdatingLocation];
+  [_locationManager startUpdatingHeading];
+  AKLLog(@"\n Started locating\n ==============\n Distance filter accuracy: %.2f\n Desired accuracy: %.2f\n Timeout: %.2f", _distanceFilterAccuracy, _desiredAccuracy, _timeoutTimeInterval);
 }
 
-- (void)timerEnded
-{
-    AKLLog(@"Timer ended. Stopping AKLocationManager.");
-    CLLocation *lastLoc = _locationManager.location;
-    
-    if ((lastLoc == nil) || (lastLoc.horizontalAccuracy > _distanceFilterAccuracy))
-    {
-        [_locationManager stopUpdatingLocation];
-        
-        NSError *error = [[NSError alloc] initWithDomain:kAKLocationManagerErrorDomain
-                                                    code:AKLocationManagerErrorTimeout
-                                                userInfo:nil];
-        if (_locationDidFail)
-        {
-            _locationDidFail(error);
-        }
+- (void)timerEnded {
+  AKLLog(@"Timer ended. Stopping AKLocationManager.");
+  CLLocation *lastLoc = _locationManager.location;
+
+  if ((lastLoc == nil) || (lastLoc.horizontalAccuracy > _distanceFilterAccuracy)) {
+    [_locationManager stopUpdatingLocation];
+    [_locationManager stopUpdatingHeading];
+
+    NSError *error = [[NSError alloc] initWithDomain:kAKLocationManagerErrorDomain
+                                                code:AKLocationManagerErrorTimeout
+                                            userInfo:nil];
+    if (_locationDidFail) {
+      _locationDidFail(error);
     }
+  }
+  _locationTimeoutTimer = nil;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
+  if (_headingDidUpdate){
+    _headingDidUpdate(newHeading);
+  }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+  AKLLog(@"\n Did update location:\n %@\n Altitude: %f\n Vertical accuracy: %f\n\n", newLocation, newLocation.altitude, newLocation.verticalAccuracy);
+  if (newLocation.horizontalAccuracy <= _desiredAccuracy && abs([newLocation.timestamp timeIntervalSinceNow]) < 15.0) {
+    if (_locationTimeoutTimer) {
+      [_locationTimeoutTimer invalidate];
+      _locationTimeoutTimer = nil;
+    }
+    [manager stopUpdatingLocation];
+    if (_locationDidUpdate) {
+      _locationDidUpdate(newLocation);
+    }
+  }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+  AKLLog(@"Did fail getting location: %@", error);
+  if (_locationTimeoutTimer) {
+    [_locationTimeoutTimer invalidate];
     _locationTimeoutTimer = nil;
+  }
+
+  //
+  // Stops locating if access to location
+  // services was denied
+  //
+  if ((error.domain == kCLErrorDomain) &&
+  (error.code == kCLErrorDenied)) {
+    [manager stopUpdatingLocation];
+  }
+
+  if (_locationDidFail) {
+    _locationDidFail(error);
+  }
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    AKLLog(@"\n Did update location:\n %@\n Altitude: %f\n Vertical accuracy: %f\n\n", newLocation, newLocation.altitude, newLocation.verticalAccuracy);
-    if (newLocation.horizontalAccuracy <= _desiredAccuracy && abs([newLocation.timestamp timeIntervalSinceNow]) < 15.0)
-    {
-        if (_locationTimeoutTimer)
-        {
-            [_locationTimeoutTimer invalidate];
-            _locationTimeoutTimer = nil;
-        }
-        [manager stopUpdatingLocation];
-        if (_locationDidUpdate)
-        {
-            _locationDidUpdate(newLocation);
-        }
-    }
++ (void)stopLocating {
+  if (_locationManager) {
+    [_locationManager stopUpdatingLocation];
+  }
+  if (_locationTimeoutTimer) {
+    [_locationTimeoutTimer invalidate];
+  }
 }
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    AKLLog(@"Did fail getting location: %@", error);
-    if (_locationTimeoutTimer)
-    {
-        [_locationTimeoutTimer invalidate];
-        _locationTimeoutTimer = nil;
-    }
-    
-    //
-    // Stops locating if access to location
-    // services was denied
-    //
-    if ((error.domain == kCLErrorDomain) &&
-        (error.code == kCLErrorDenied))
-    {
-        [manager stopUpdatingLocation];
-    }
-    
-    if (_locationDidFail)
-    {
-        _locationDidFail(error);
-    }
++ (BOOL)canLocate {
+  return (([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized) ||
+         ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined))
+         && [CLLocationManager locationServicesEnabled];
 }
 
-+ (void)stopLocating
-{
-    if (_locationManager)
-    {
-        [_locationManager stopUpdatingLocation];
-    }
-    if (_locationTimeoutTimer)
-    {
-        [_locationTimeoutTimer invalidate];
-    }
-}
++ (CLLocationCoordinate2D)mostRecentCoordinate {
+  CLLocation *loc = _locationManager.location;
 
-+ (BOOL)canLocate
-{
-    return (([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized) ||
-            ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined))
-            && [CLLocationManager locationServicesEnabled];
-}
+  //
+  // Verifies if mostRecentCoordinate location object is valid
+  // according to behavioral specification in CLLocatioManager's
+  // official documentation.
+  //
+  // See: https://developer.apple.com/library/mac/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html
+  //
+  if (loc == nil
+  || [[NSDate date] timeIntervalSinceDate:loc.timestamp] >= 60
+  || loc.horizontalAccuracy > _distanceFilterAccuracy
+  || !CLLocationCoordinate2DIsValid(loc.coordinate)) {
+    return kCLLocationCoordinate2DInvalid;
+  }
 
-+ (CLLocationCoordinate2D)mostRecentCoordinate
-{
-    CLLocation *loc = _locationManager.location;
-    
-    //
-    // Verifies if mostRecentCoordinate location object is valid
-    // according to behavioral specification in CLLocatioManager's
-    // official documentation.
-    //
-    // See: https://developer.apple.com/library/mac/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html
-    //
-    if (loc == nil
-        || [[NSDate date] timeIntervalSinceDate:loc.timestamp] >= 60
-        || loc.horizontalAccuracy > _distanceFilterAccuracy
-        || !CLLocationCoordinate2DIsValid(loc.coordinate))
-    {
-        return kCLLocationCoordinate2DInvalid;
-    }
-    
-    return loc.coordinate;
+  return loc.coordinate;
 }
 
 @end
