@@ -1,0 +1,548 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8DE2988E191097E700C9537F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE2988D191097E700C9537F /* Foundation.framework */; };
+		8DE29890191097E700C9537F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE2988F191097E700C9537F /* CoreGraphics.framework */; };
+		8DE29892191097E700C9537F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE29891191097E700C9537F /* UIKit.framework */; };
+		8DE29898191097E700C9537F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DE29896191097E700C9537F /* InfoPlist.strings */; };
+		8DE2989A191097E700C9537F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE29899191097E700C9537F /* main.m */; };
+		8DE2989E191097E700C9537F /* NTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2989D191097E700C9537F /* NTAppDelegate.m */; };
+		8DE298A1191097E700C9537F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DE2989F191097E700C9537F /* Main_iPhone.storyboard */; };
+		8DE298A4191097E700C9537F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DE298A2191097E700C9537F /* Main_iPad.storyboard */; };
+		8DE298A7191097E700C9537F /* NTDistanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE298A6191097E700C9537F /* NTDistanceViewController.m */; };
+		8DE298AA191097E700C9537F /* NTEvacViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE298A9191097E700C9537F /* NTEvacViewController.m */; };
+		8DE298AC191097E700C9537F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DE298AB191097E700C9537F /* Images.xcassets */; };
+		8DE298B3191097E800C9537F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE298B2191097E800C9537F /* XCTest.framework */; };
+		8DE298B4191097E800C9537F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE2988D191097E700C9537F /* Foundation.framework */; };
+		8DE298B5191097E800C9537F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE29891191097E700C9537F /* UIKit.framework */; };
+		8DE298BD191097E800C9537F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DE298BB191097E800C9537F /* InfoPlist.strings */; };
+		8DE298BF191097E800C9537F /* NoNukeTaiwanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE298BE191097E800C9537F /* NoNukeTaiwanTests.m */; };
+		A8459C91CF8C42DCB8DE1584 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6804C2F0E247D3922326A8 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8DE298B6191097E800C9537F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DE29882191097E700C9537F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DE29889191097E700C9537F;
+			remoteInfo = NoNukeTaiwan;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6E57A6341EB346A9B3CD3253 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		8DE2988A191097E700C9537F /* NoNukeTaiwan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoNukeTaiwan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DE2988D191097E700C9537F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8DE2988F191097E700C9537F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8DE29891191097E700C9537F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8DE29895191097E700C9537F /* NoNukeTaiwan-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NoNukeTaiwan-Info.plist"; sourceTree = "<group>"; };
+		8DE29897191097E700C9537F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8DE29899191097E700C9537F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8DE2989B191097E700C9537F /* NoNukeTaiwan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NoNukeTaiwan-Prefix.pch"; sourceTree = "<group>"; };
+		8DE2989C191097E700C9537F /* NTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTAppDelegate.h; sourceTree = "<group>"; };
+		8DE2989D191097E700C9537F /* NTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTAppDelegate.m; sourceTree = "<group>"; };
+		8DE298A0191097E700C9537F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		8DE298A3191097E700C9537F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		8DE298A5191097E700C9537F /* NTDistanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTDistanceViewController.h; sourceTree = "<group>"; };
+		8DE298A6191097E700C9537F /* NTDistanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTDistanceViewController.m; sourceTree = "<group>"; };
+		8DE298A8191097E700C9537F /* NTEvacViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTEvacViewController.h; sourceTree = "<group>"; };
+		8DE298A9191097E700C9537F /* NTEvacViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTEvacViewController.m; sourceTree = "<group>"; };
+		8DE298AB191097E700C9537F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8DE298B1191097E800C9537F /* NoNukeTaiwanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoNukeTaiwanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DE298B2191097E800C9537F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8DE298BA191097E800C9537F /* NoNukeTaiwanTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NoNukeTaiwanTests-Info.plist"; sourceTree = "<group>"; };
+		8DE298BC191097E800C9537F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8DE298BE191097E800C9537F /* NoNukeTaiwanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoNukeTaiwanTests.m; sourceTree = "<group>"; };
+		FF6804C2F0E247D3922326A8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DE29887191097E700C9537F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DE29890191097E700C9537F /* CoreGraphics.framework in Frameworks */,
+				8DE29892191097E700C9537F /* UIKit.framework in Frameworks */,
+				8DE2988E191097E700C9537F /* Foundation.framework in Frameworks */,
+				A8459C91CF8C42DCB8DE1584 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DE298AE191097E800C9537F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DE298B3191097E800C9537F /* XCTest.framework in Frameworks */,
+				8DE298B5191097E800C9537F /* UIKit.framework in Frameworks */,
+				8DE298B4191097E800C9537F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8DE29881191097E700C9537F = {
+			isa = PBXGroup;
+			children = (
+				8DE29893191097E700C9537F /* NoNukeTaiwan */,
+				8DE298B8191097E800C9537F /* NoNukeTaiwanTests */,
+				8DE2988C191097E700C9537F /* Frameworks */,
+				8DE2988B191097E700C9537F /* Products */,
+				6E57A6341EB346A9B3CD3253 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		8DE2988B191097E700C9537F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DE2988A191097E700C9537F /* NoNukeTaiwan.app */,
+				8DE298B1191097E800C9537F /* NoNukeTaiwanTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8DE2988C191097E700C9537F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DE2988D191097E700C9537F /* Foundation.framework */,
+				8DE2988F191097E700C9537F /* CoreGraphics.framework */,
+				8DE29891191097E700C9537F /* UIKit.framework */,
+				8DE298B2191097E800C9537F /* XCTest.framework */,
+				FF6804C2F0E247D3922326A8 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8DE29893191097E700C9537F /* NoNukeTaiwan */ = {
+			isa = PBXGroup;
+			children = (
+				8DE2989C191097E700C9537F /* NTAppDelegate.h */,
+				8DE2989D191097E700C9537F /* NTAppDelegate.m */,
+				8DE2989F191097E700C9537F /* Main_iPhone.storyboard */,
+				8DE298A2191097E700C9537F /* Main_iPad.storyboard */,
+				8DE298A5191097E700C9537F /* NTDistanceViewController.h */,
+				8DE298A6191097E700C9537F /* NTDistanceViewController.m */,
+				8DE298A8191097E700C9537F /* NTEvacViewController.h */,
+				8DE298A9191097E700C9537F /* NTEvacViewController.m */,
+				8DE298AB191097E700C9537F /* Images.xcassets */,
+				8DE29894191097E700C9537F /* Supporting Files */,
+			);
+			path = NoNukeTaiwan;
+			sourceTree = "<group>";
+		};
+		8DE29894191097E700C9537F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8DE29895191097E700C9537F /* NoNukeTaiwan-Info.plist */,
+				8DE29896191097E700C9537F /* InfoPlist.strings */,
+				8DE29899191097E700C9537F /* main.m */,
+				8DE2989B191097E700C9537F /* NoNukeTaiwan-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8DE298B8191097E800C9537F /* NoNukeTaiwanTests */ = {
+			isa = PBXGroup;
+			children = (
+				8DE298BE191097E800C9537F /* NoNukeTaiwanTests.m */,
+				8DE298B9191097E800C9537F /* Supporting Files */,
+			);
+			path = NoNukeTaiwanTests;
+			sourceTree = "<group>";
+		};
+		8DE298B9191097E800C9537F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8DE298BA191097E800C9537F /* NoNukeTaiwanTests-Info.plist */,
+				8DE298BB191097E800C9537F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DE29889191097E700C9537F /* NoNukeTaiwan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DE298C2191097E800C9537F /* Build configuration list for PBXNativeTarget "NoNukeTaiwan" */;
+			buildPhases = (
+				489A29BEE96A444A8683EE62 /* Check Pods Manifest.lock */,
+				8DE29886191097E700C9537F /* Sources */,
+				8DE29887191097E700C9537F /* Frameworks */,
+				8DE29888191097E700C9537F /* Resources */,
+				79F96F16DD29411DABA4C016 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NoNukeTaiwan;
+			productName = NoNukeTaiwan;
+			productReference = 8DE2988A191097E700C9537F /* NoNukeTaiwan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8DE298B0191097E800C9537F /* NoNukeTaiwanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DE298C5191097E800C9537F /* Build configuration list for PBXNativeTarget "NoNukeTaiwanTests" */;
+			buildPhases = (
+				8DE298AD191097E800C9537F /* Sources */,
+				8DE298AE191097E800C9537F /* Frameworks */,
+				8DE298AF191097E800C9537F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DE298B7191097E800C9537F /* PBXTargetDependency */,
+			);
+			name = NoNukeTaiwanTests;
+			productName = NoNukeTaiwanTests;
+			productReference = 8DE298B1191097E800C9537F /* NoNukeTaiwanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8DE29882191097E700C9537F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = NT;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = NoNukeTaiwan;
+				TargetAttributes = {
+					8DE29889191097E700C9537F = {
+						DevelopmentTeam = 3D3CBPB7SW;
+					};
+					8DE298B0191097E800C9537F = {
+						TestTargetID = 8DE29889191097E700C9537F;
+					};
+				};
+			};
+			buildConfigurationList = 8DE29885191097E700C9537F /* Build configuration list for PBXProject "NoNukeTaiwan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8DE29881191097E700C9537F;
+			productRefGroup = 8DE2988B191097E700C9537F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DE29889191097E700C9537F /* NoNukeTaiwan */,
+				8DE298B0191097E800C9537F /* NoNukeTaiwanTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DE29888191097E700C9537F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DE298A4191097E700C9537F /* Main_iPad.storyboard in Resources */,
+				8DE298AC191097E700C9537F /* Images.xcassets in Resources */,
+				8DE298A1191097E700C9537F /* Main_iPhone.storyboard in Resources */,
+				8DE29898191097E700C9537F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DE298AF191097E800C9537F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DE298BD191097E800C9537F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		489A29BEE96A444A8683EE62 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		79F96F16DD29411DABA4C016 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DE29886191097E700C9537F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DE298AA191097E700C9537F /* NTEvacViewController.m in Sources */,
+				8DE2989E191097E700C9537F /* NTAppDelegate.m in Sources */,
+				8DE298A7191097E700C9537F /* NTDistanceViewController.m in Sources */,
+				8DE2989A191097E700C9537F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DE298AD191097E800C9537F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DE298BF191097E800C9537F /* NoNukeTaiwanTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8DE298B7191097E800C9537F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DE29889191097E700C9537F /* NoNukeTaiwan */;
+			targetProxy = 8DE298B6191097E800C9537F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8DE29896191097E700C9537F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DE29897191097E700C9537F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8DE2989F191097E700C9537F /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DE298A0191097E700C9537F /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		8DE298A2191097E700C9537F /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DE298A3191097E700C9537F /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		8DE298BB191097E800C9537F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DE298BC191097E800C9537F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8DE298C0191097E800C9537F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8DE298C1191097E800C9537F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8DE298C3191097E800C9537F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E57A6341EB346A9B3CD3253 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NoNukeTaiwan/NoNukeTaiwan-Prefix.pch";
+				INFOPLIST_FILE = "NoNukeTaiwan/NoNukeTaiwan-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8DE298C4191097E800C9537F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E57A6341EB346A9B3CD3253 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NoNukeTaiwan/NoNukeTaiwan-Prefix.pch";
+				INFOPLIST_FILE = "NoNukeTaiwan/NoNukeTaiwan-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8DE298C6191097E800C9537F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NoNukeTaiwan.app/NoNukeTaiwan";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NoNukeTaiwan/NoNukeTaiwan-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NoNukeTaiwanTests/NoNukeTaiwanTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8DE298C7191097E800C9537F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NoNukeTaiwan.app/NoNukeTaiwan";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NoNukeTaiwan/NoNukeTaiwan-Prefix.pch";
+				INFOPLIST_FILE = "NoNukeTaiwanTests/NoNukeTaiwanTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8DE29885191097E700C9537F /* Build configuration list for PBXProject "NoNukeTaiwan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DE298C0191097E800C9537F /* Debug */,
+				8DE298C1191097E800C9537F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DE298C2191097E800C9537F /* Build configuration list for PBXNativeTarget "NoNukeTaiwan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DE298C3191097E800C9537F /* Debug */,
+				8DE298C4191097E800C9537F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DE298C5191097E800C9537F /* Build configuration list for PBXNativeTarget "NoNukeTaiwanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DE298C6191097E800C9537F /* Debug */,
+				8DE298C7191097E800C9537F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8DE29882191097E700C9537F /* Project object */;
+}

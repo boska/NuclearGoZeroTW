@@ -1,0 +1,22 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+#define INIT_COOR CLLocationCoordinate2DMake(25.0436719, 121.520229)
+#define NUKE1_COOR CLLocationCoordinate2DMake(25.28632, 121.588211)
+#define NUKE2_COOR CLLocationCoordinate2DMake(25.202935, 121.66286)
+#define NUKE4_COOR CLLocationCoordinate2DMake(25.037539, 121.926909)
+#define NUKE3_COOR CLLocationCoordinate2DMake(21.958092, 120.751612)
+#import <Availability.h>
+#import <GoogleMaps/GoogleMaps.h>
+#import <FrameAccessor.h>
+#define AKLLog(...)
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+  #import <UIKit/UIKit.h>
+  #import <Foundation/Foundation.h>
+#endif
