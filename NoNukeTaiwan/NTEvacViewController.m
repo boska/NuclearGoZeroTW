@@ -59,7 +59,7 @@
   GMSCircle *circle = [[GMSCircle alloc] init];
   circle.position = coor;
   circle.radius = 30000;
-  circle.fillColor = [[UIColor yellowColor] colorWithAlphaComponent:0.3];
+  circle.fillColor = [YELLO colorWithAlphaComponent:0.3];
   circle.map = self.mapView;
   circle.strokeWidth = 0;
   return circle;

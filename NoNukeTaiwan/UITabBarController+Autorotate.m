@@ -7,7 +7,7 @@
 //
 
 #import "UITabBarController+Autorotate.h"
-
+#import "NTDistanceViewController.h"
 @implementation UITabBarController (Autorotate)
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

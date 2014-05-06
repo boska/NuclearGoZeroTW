@@ -10,4 +10,6 @@
 
 @interface NTDistanceViewController : UIViewController
 @property (nonatomic,weak)IBOutlet UIImageView *compassImageView;
+@property (nonatomic,weak)IBOutlet UILabel *kmLabel;
+
 @end

@@ -12,13 +12,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [GMSServices provideAPIKey:@"AIzaSyBtKmTvxiA_COgy1i22Swfuzd8DZRQtwpA"];
-  [[UITabBar appearance] setSelectedImageTintColor:[UIColor yellowColor]];
+  [[UITabBar appearance] setSelectedImageTintColor:YELLO];
   [[UITabBar appearance] setBarStyle:UIBarStyleBlack];
   [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
 
-  [[[UIApplication sharedApplication] delegate].window setTintColor:[UIColor yellowColor]];
+  [[[UIApplication sharedApplication] delegate].window setTintColor:YELLO];
 
-  [[UILabel appearanceWhenContainedIn:[NTDistanceViewController class], nil] setTextColor:[UIColor yellowColor]];
+  [[UILabel appearanceWhenContainedIn:[NTDistanceViewController class], nil] setTextColor:YELLO];
 
   //[[UIView appearance] setBackgroundColor:[UIColor blackColor]];
   return YES;

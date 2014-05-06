@@ -11,8 +11,8 @@
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPhone)
 @interface NTProtestViewController ()
 @property (nonatomic, strong) MarqueeLabel *marquee;
-@property (nonatomic, strong)IBOutlet UITextField *sloganField;
-@property (nonatomic, strong)IBOutlet UILabel *helpLabel;
+@property (nonatomic, strong) IBOutlet UITextField *sloganField;
+@property (nonatomic, strong) IBOutlet UILabel *helpLabel;
 
 @end
 
@@ -21,10 +21,10 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor blackColor];
-  self.helpLabel.textColor = [UIColor yellowColor];
-  self.sloganField.textColor = [UIColor yellowColor];
+  self.helpLabel.textColor = YELLO;
+  self.sloganField.textColor = YELLO;
   self.sloganField.layer.borderWidth = 1;
-  self.sloganField.layer.borderColor = [UIColor yellowColor].CGColor;
+  self.sloganField.layer.borderColor = YELLO.CGColor;
   // Do any additional setup after loading the view.
 }
 
@@ -59,12 +59,11 @@
 - (void)orientationRefresh {
   [self.sloganField resignFirstResponder];
   if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
-    self.sloganField.hidden = YES;
-    self.helpLabel.hidden = YES;
-
     if (self.marquee == nil) {
       self.marquee = [[MarqueeLabel alloc] initWithFrame:self.view.frame rate:700 andFadeLength:10.0f];
-      self.marquee.textColor = [UIColor yellowColor];
+      self.marquee.animationCurve = UIViewAnimationOptionCurveLinear;
+      self.marquee.animationDelay = 0;
+      self.marquee.textColor = YELLO;
     }
     self.marquee.text = self.sloganField.text;
     self.marquee.numberOfLines = 1;
@@ -75,8 +74,12 @@
       self.marquee.rate = 500;
     }
     if (IS_IPAD) {
-  self.marquee.font = [UIFont fontWithName:@"MStiffHeiHK" size:300];
+      self.marquee.font = [UIFont fontWithName:@"MStiffHeiHK" size:500];
       self.marquee.rate = 700;
+//      self.marquee.labelize = YES;
+//      self.marquee.lineBreakMode = NSLineBreakByClipping;
+//      self.marquee.adjustsFontSizeToFitWidth =YES;
+//      self.marquee.minimumScaleFactor = 0.1;
     }
     self.marquee.marqueeType = MLContinuous;
     self.marquee.x = 0;
@@ -84,13 +87,29 @@
     [self.view addSubview:self.marquee];
 
     self.marquee.hidden = NO;
+    self.marquee.alpha = 0;
+    [UIView animateWithDuration:0.3 animations:^{
+      self.marquee.alpha = 1;
+      self.sloganField.alpha = 0;
+      self.helpLabel.alpha = 0;
+    } completion:^(BOOL finished) {
+      self.sloganField.hidden = YES;
+      self.helpLabel.hidden = YES;
+    }];
     self.tabBarController.tabBar.hidden = YES;
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
   }
   if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
     self.sloganField.hidden = NO;
     self.helpLabel.hidden = NO;
-    self.marquee.hidden = YES;
+    [UIView animateWithDuration:0.3 animations:^{
+      self.marquee.alpha = 0;
+      self.sloganField.alpha = 1;
+      self.helpLabel.alpha = 1;
+    } completion:^(BOOL finished) {
+      self.marquee.hidden = YES;
+    }];
+
     self.tabBarController.tabBar.hidden = NO;
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
   }

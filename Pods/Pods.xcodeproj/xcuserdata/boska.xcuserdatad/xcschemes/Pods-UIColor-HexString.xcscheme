@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1DA0AEA404704FB1953EC562"
-               BuildableName = "libPods-MarqueeLabel.a"
-               BlueprintName = "Pods-MarqueeLabel"
+               BlueprintIdentifier = "D0E5EDA546864E3DAE65E5FB"
+               BuildableName = "libPods-UIColor-HexString.a"
+               BlueprintName = "Pods-UIColor-HexString"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

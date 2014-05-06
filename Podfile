@@ -1,3 +1,4 @@
+pod 'UIColor-HexString', '~> 1.1'
 pod 'Google-Maps-iOS-SDK', '~> 1.7'
 pod 'FrameAccessor', '~> 1.3'
 pod 'AKLocationManager'

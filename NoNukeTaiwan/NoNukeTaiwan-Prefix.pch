@@ -8,9 +8,11 @@
 #define NUKE2_COOR CLLocationCoordinate2DMake(25.202935, 121.66286)
 #define NUKE4_COOR CLLocationCoordinate2DMake(25.037539, 121.926909)
 #define NUKE3_COOR CLLocationCoordinate2DMake(21.958092, 120.751612)
+#define YELLO [UIColor colorWithHexString:@"F9E117"]
 #import <Availability.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <FrameAccessor.h>
+#import <UIColor+HexString.h>
 #define AKLLog(...)
 #ifndef __IPHONE_5_0
 #warning "This project uses features only available in iOS SDK 5.0 and later."
